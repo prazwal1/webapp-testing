@@ -27,9 +27,11 @@ jobs:
         with:
           python-version: ${{ env.PYTHON_VERSION }}
 
-      - name: Install dependencies
-        working-directory: ${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}
-        run: pip install -r requirements.txt --target=".python_packages/lib/site-packages"
+      # No manual pip install here - Azure's remote build (Oryx) installs
+      # dependencies from requirements.txt server-side after upload.
+      # Vendoring packages here too caused the "malformed content" /
+      # sync-trigger failure, since Azure ended up with two conflicting
+      # sets of installed packages.
 
       # OIDC login - no client secret stored in GitHub. Requires a federated
       # credential set up on the Azure AD App Registration, scoped to this
