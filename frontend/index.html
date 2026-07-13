@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Notes - DEV</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    body { font-family: system-ui, sans-serif; max-width: 640px; margin: 40px auto; padding: 0 16px; }
+    h1 { font-size: 1.4rem; }
+    form { display: flex; flex-direction: column; gap: 8px; margin-bottom: 32px; }
+    input, textarea { padding: 8px; font: inherit; }
+    button { padding: 8px 16px; cursor: pointer; }
+    .note { border: 1px solid #ddd; border-radius: 6px; padding: 12px; margin-bottom: 12px; }
+    .note h3 { margin: 0 0 4px 0; }
+    .note small { color: #666; }
+    #status { color: #b00; }
+  </style>
+</head>
+<body>
+  <h1>Notes (DEV)</h1>
+
+  <form id="note-form">
+    <input type="text" id="title" placeholder="Title" required />
+    <textarea id="body" placeholder="Body" rows="3"></textarea>
+    <input type="file" id="attachment" />
+    <button type="submit">Save note</button>
+  </form>
+
+  <div id="status"></div>
+  <div id="notes"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
